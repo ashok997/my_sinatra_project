@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
   
   get '/users/:id' do
-    
+    "show route"
   end
   
 end
