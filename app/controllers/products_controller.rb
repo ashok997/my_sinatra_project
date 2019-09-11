@@ -27,7 +27,14 @@ class ProductsController < ApplicationController
   end
   
   get '/products/:id/edit' do
+    @product = Product.find(params[:id])
     erb :'/products/edit'
+  end
+  
+   patch '/products/:id' do
+    @product = Product.find_by_id(params[:id])
+    @article.update(title: params[:title], price: params[:price], is_listed?: params[:is_listed?], link: params[:link])
+    redirect to "/articles/#{@article.id}"
   end
   
 end
