@@ -18,4 +18,9 @@ class ProductsController < ApplicationController
       
   end
   
+  get '/products/:id' do
+    @product = Product.find(params[:id])
+    erb :'/products/show' 
+  end
+  
 end
