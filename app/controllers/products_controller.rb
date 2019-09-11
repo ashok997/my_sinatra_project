@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
      @product =Product.create(params)
      @product.user_id = current_user.id
      @product.save
+     binding.pry
       redirect "/products/#{@product.id}"
     else
       redirect '/products/new'
@@ -29,7 +30,8 @@ class ProductsController < ApplicationController
   
   get '/products/:id/edit' do
     @product = Product.find(params[:id])
-    if !logged_in?
+  
+    if logged_in?
       if @product.user_id ==current_user.id
         erb :'/products/edit'
       else
@@ -38,6 +40,7 @@ class ProductsController < ApplicationController
     else
       redirect '/'
     end
+    
   end
   
   patch '/products/:id' do
