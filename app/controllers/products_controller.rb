@@ -5,12 +5,12 @@ class ProductsController < ApplicationController
   end
   
   post '/products/new' do
-    if !logged_in?
-      redirect '/'
-    end
+   
     
     if params[:title] != ""
-      @product =Product.create()
+
+      @product =Product.create(params)
+      binding.pry
       redirect "/products/#{@product.id}"
     else
       redirect '/products/new'
