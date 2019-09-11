@@ -1,18 +1,18 @@
 <form action="/products/<%=@product.id%>" method ="post">
    <input id="hidden" type="hidden" name="_method" value="PATCH">
     
-  <label for="title">Title</label>
+  <label for="title">Title: </label>
   <input type ="text" name="title" value="<%=@product.title%>"></br>
-  <label for="price">Price</label>
+  <label for="price">Price: </label>
   <input type ="text" name="price" value="<%=@product.price%>"></br>
-  <label for="is_listed">Have you Listed this product</label>
+  <label for="is_listed">Have you Listed this product: </label>
   <% if @product.is_listed? %>
-    <input type="checkbox" name="is_listed?" value="true"  checked > 
+    <input type="checkbox" name="is_listed?" value="true"  checked > </br>
   <% else %>
-    <input type="checkbox" name="is_listed?" value="true" > 
+    <input type="checkbox" name="is_listed?" value="true" > </br>
   <% end %>
   
-  <label for="link">Link</label>
+  <label for="link">Link: </label>
   <input type ="text" name="link" value="<%=@product.link%>"></br>
   <input type ="submit" name="" value="Edit Product">
   

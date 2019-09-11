@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
     if params[:title] != ""
      @product =Product.create(params)
      @product.user_id = current_user.id
-     binding.pry
+     @product.save
       redirect "/products/#{@product.id}"
     else
       redirect '/products/new'
@@ -23,16 +23,25 @@ class ProductsController < ApplicationController
   
   get '/products/:id' do
     @product = Product.find(params[:id])
+    binding.pry
     erb :'/products/show' 
   end
   
   get '/products/:id/edit' do
     @product = Product.find(params[:id])
-    erb :'/products/edit'
+    if !logged_in?
+      if @product.user_id ==current_user.id
+        erb :'/products/edit'
+      else
+        redirect "users/#{current_user.id}"
+      end
+    else
+      redirect '/'
+    end
   end
   
   patch '/products/:id' do
-    @product = Product.find_by_id(params[:id])
+    @product = Product.find(params[:id])
     @product.update(title: params[:title], price: params[:price], is_listed?: params[:is_listed?], link: params[:link])
     redirect to "/products/#{@product.id}"
   end
