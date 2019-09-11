@@ -1,4 +1,4 @@
-class ProdcutsController < ApplicationController
+class ProductsController < ApplicationController
 
   get '/products/new' do 
     erb :'/products/new'
@@ -7,4 +7,6 @@ class ProdcutsController < ApplicationController
   post '/products' do
     
   end
+  
+  
 end
