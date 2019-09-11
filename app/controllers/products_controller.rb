@@ -26,4 +26,8 @@ class ProductsController < ApplicationController
     erb :'/products/show' 
   end
   
+  get '/products/:id/edit' do
+    erb :'/products/edit'
+  end
+  
 end
