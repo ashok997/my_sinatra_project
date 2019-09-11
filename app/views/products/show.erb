@@ -1,13 +1,14 @@
 <h1><%= @product.title %></h1>
 Price:<%= @product.price %> </br>
-<%= @product.is_listed? %></br>
+
 
 Have you listed the product?
-<% if @product.is_listed? == true %>
+<% if @product.is_listed? %>
    YES
 <% else %>
   NO
 <% end %> </br>
+
 Shop Link:<%= @product.link %></br>
 
 

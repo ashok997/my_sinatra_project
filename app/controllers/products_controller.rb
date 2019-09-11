@@ -31,10 +31,10 @@ class ProductsController < ApplicationController
     erb :'/products/edit'
   end
   
-   patch '/products/:id' do
+  patch '/products/:id' do
     @product = Product.find_by_id(params[:id])
-    @article.update(title: params[:title], price: params[:price], is_listed?: params[:is_listed?], link: params[:link])
-    redirect to "/articles/#{@article.id}"
+    @product.update(title: params[:title], price: params[:price], is_listed?: params[:is_listed?], link: params[:link])
+    redirect to "/products/#{@product.id}"
   end
   
 end
