@@ -4,9 +4,8 @@ class ProductsController < ApplicationController
     erb :'/products/new'
   end
   
-  post '/products' do
-    
+  post '/products/new' do
+    binding.pry
   end
-  
   
 end
