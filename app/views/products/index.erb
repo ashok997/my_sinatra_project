@@ -1,8 +1,8 @@
-All Products
-<% @product.each do |product| %>
-  <h4><a href="/productss/<%= product.id %>"></a></h4>
-  <strong><%= product.title %></strong>
-  <p><%= product.price %></p>
-  <p>By <%= product.user.name %></p>
-  <br><br>
+<h1>All Products</h1>
+<% @products.each do |product| %>
+  
+  <li> Title :<%= product.title %> </li>
+  <li> Price :<%= product.price %> </li>
+  <li><a href = "/products/<%=product.id%>">Details </a> </li>
+  <br>
 <% end %>

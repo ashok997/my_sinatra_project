@@ -1,4 +1,9 @@
 class ProductsController < ApplicationController
+  
+  get '/products' do
+    @products =Product.all
+    erb :'/products/index'
+  end
 
   get '/products/new' do 
     erb :'/products/new'
@@ -23,8 +28,9 @@ class ProductsController < ApplicationController
   end
   
   get '/products/:id' do
-    @product = Product.find(params[:id])
     binding.pry
+    @product = Product.find(params[:id])
+ 
     erb :'/products/show' 
   end
   
@@ -64,5 +70,6 @@ class ProductsController < ApplicationController
     redirect "users/#{current_user.id}"
   end
   
+ 
   
 end
