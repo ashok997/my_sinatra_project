@@ -25,9 +25,12 @@ class ProductsController < ApplicationController
   
   get '/products/:id' do
     binding.pry
-    @product = Product.find(params[:id])
- 
-    erb :'/products/show' 
+    @product = Product.find_by_id(params[:id])
+    if @product 
+      erb :'/products/show'
+    else
+      erb :'/error'
+    end
   end
   
   get '/products/:id/edit' do
@@ -71,6 +74,6 @@ class ProductsController < ApplicationController
     binding.pry
     erb :'/products/index'
   end
-
   
+
 end
