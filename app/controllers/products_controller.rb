@@ -45,8 +45,17 @@ class ProductsController < ApplicationController
   
   patch '/products/:id' do
     @product = Product.find(params[:id])
-    @product.update(title: params[:title], price: params[:price], is_listed?: params[:is_listed?], link: params[:link])
-    redirect to "/products/#{@product.id}"
+    
+    if logged_in?
+      if @product.user_id ==current_user.id
+        @product.update(title: params[:title], price: params[:price], is_listed?: params[:is_listed?], link: params[:link])
+        redirect to "/products/#{@product.id}"
+      else
+        redirect "users/#{current_user.id}"
+      end
+    else
+      redirect '/'
+    end
   end
   
   delete '/products/:id' do
