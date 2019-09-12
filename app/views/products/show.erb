@@ -11,10 +11,12 @@ Have you listed the product?
 
 Shop Link:<%= @product.link %></br>
 
-
+<% if current_user ==@product.user %>
 <a href ="/products/<%=@product.id%>/edit">Edit Product</a>
 
 <form method="post" action="/products/<%= @product.id %>">
   <input type="hidden" name="_method" value="delete" />
   <input type="submit" value = "Delete">
 </form>
+
+<% end %>
