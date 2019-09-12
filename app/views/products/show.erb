@@ -13,3 +13,8 @@ Shop Link:<%= @product.link %></br>
 
 
 <a href ="/products/<%=@product.id%>/edit">Edit Product</a>
+
+<form method="post" action="/products/<%= @product.id %>">
+  <input type="hidden" name="_method" value="delete" />
+  <input type="submit" value = "Delete">
+</form>

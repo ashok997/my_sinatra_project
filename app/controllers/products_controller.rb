@@ -49,4 +49,11 @@ class ProductsController < ApplicationController
     redirect to "/products/#{@product.id}"
   end
   
+  delete '/products/:id' do
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect "users/#{current_user.id}"
+  end
+  
+  
 end
