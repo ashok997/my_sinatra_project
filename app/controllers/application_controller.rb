@@ -17,6 +17,10 @@ class ApplicationController < Sinatra::Base
     end
   end
   
+  not_found do
+    "Woops! Page you are looking for is not available"
+  end
+  
   helpers do
     
     def logged_in?
