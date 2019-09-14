@@ -32,8 +32,12 @@ class UsersController < ApplicationController
   
   get '/users/:id' do
     @user = User.find_by(id: params[:id])
-    erb :'/users/show'
-  
+    if @user
+      erb :'/users/show'
+    else
+      @error = "The user you are looking for does not exist!"
+      erb :'/error'
+    end
   end
   
   get '/logout' do
