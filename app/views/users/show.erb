@@ -1,3 +1,16 @@
 <h1>You are logged in as "<%= @user.name %>" </h1>
 
 Email: <%= @user.email %>
+
+<h3>My Products</h3>
+<div>
+
+<% @myproducts.each do |product| %>
+  
+  <li> Title :<%= product.title %> </li>
+  <li> Price :<%= product.price %> </li>
+  <li> Sold BY : <%=product.user.name  %> </li>
+  <li><a href = "/products/<%=product.id%>">Details </a> </li>
+  <br>
+<% end %>
+</div>

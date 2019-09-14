@@ -1,9 +1,10 @@
 <h1>All Products</h1>
 <% @products.each do |product| %>
-  
+  <div>
   <li> Title :<%= product.title %> </li>
   <li> Price :<%= product.price %> </li>
-  <li> Sold BY : <%=product.user.name  %> </li>
+  <li> Sold By : <%=product.user.name  %> </li>
   <li><a href = "/products/<%=product.id%>">Details </a> </li>
-  <br>
+  </br>
+  </div>
 <% end %>
