@@ -11,11 +11,10 @@ class ProductsController < ApplicationController
       redirect '/'
     end
     
-    if params[:title] != ""
+    if params[:title] != "" && params[:price] != "" && params[:link] != "" && params[:is_listed?] != ""
      @product =Product.create(params)
      @product.user_id = current_user.id
      @product.save
-     binding.pry
       redirect "/products/#{@product.id}"
     else
       redirect '/products/new'
@@ -24,7 +23,6 @@ class ProductsController < ApplicationController
   end
   
   get '/products/:id' do
-    binding.pry
     @product = Product.find_by_id(params[:id])
     if @product 
       erb :'/products/show'
@@ -71,7 +69,6 @@ class ProductsController < ApplicationController
   
   get '/products' do
     @products =Product.all
-    binding.pry
     erb :'/products/index'
   end
   
