@@ -11,6 +11,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "users/#{@user.id}"
     else
+      flash[:message] = "Your credentials were wrong. Please try again or Sign Up."
       redirect '/login'
     end
   end
@@ -32,6 +33,7 @@ class UsersController < ApplicationController
   get '/users/:id' do
     @user = User.find_by(id: params[:id])
     erb :'/users/show'
+  
   end
   
   get '/logout' do

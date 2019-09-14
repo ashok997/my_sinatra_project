@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
      @product.save
       redirect "/products/#{@product.id}"
     else
+      flash[:message] = "All fields are required!"
       redirect '/products/new'
     end
       
@@ -27,6 +28,7 @@ class ProductsController < ApplicationController
     if @product 
       erb :'/products/show'
     else
+      @error = "The product you are looking for does not exit!!"
       erb :'/error'
     end
   end

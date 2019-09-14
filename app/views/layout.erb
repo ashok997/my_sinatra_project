@@ -19,7 +19,10 @@
         <li><a href="/logout"> Log Out </a></li>
         <li><a href= "/products"> All Products </a></li>
         <li><a href="/products/new"> Create New Product </a></li>
-        <% end %>
+       <% end %>
+      <%if flash[:message] %>
+          <h2><%= flash[:message] %></h2>
+      <% end %>
     </div>
     <div class="wrapper">
 
