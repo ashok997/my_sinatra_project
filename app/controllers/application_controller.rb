@@ -19,7 +19,7 @@ class ApplicationController < Sinatra::Base
   end
   
   not_found do
-    "Woops! Page you are looking for is not available"
+    erb :error
   end
   
   helpers do
