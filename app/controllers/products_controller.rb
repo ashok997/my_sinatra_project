@@ -11,13 +11,13 @@ class ProductsController < ApplicationController
       redirect '/'
     end
     
-    if params[:title] != "" && params[:price] != "" && params[:link] != "" 
+    if params[:title] != "" && params[:price].to_i !=0 && params[:link] != ""
      @product =Product.create(params)
      @product.user_id = current_user.id
      @product.save
       redirect "/products/#{@product.id}"
     else
-      flash[:message] = "All fields are required!"
+      flash[:message] = "All fields are required and price should be a number"
       redirect '/products/new'
     end
       
