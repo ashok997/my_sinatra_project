@@ -1,15 +1,15 @@
 <h1><%= @product.title %></h1>
-Price:<%= @product.price %> </br>
+Price: <%= @product.price %> </br>
 
 
-Have you listed the product?
+Have you listed the product? 
 <% if @product.is_listed? %>
    YES
 <% else %>
   NO
 <% end %> </br>
 
-Shop Link:<%= @product.link %></br>
+Shop Link: <%= @product.link %></br>
 
 <% if current_user ==@product.user %>
 <a href ="/products/<%=@product.id%>/edit">Edit Product</a>

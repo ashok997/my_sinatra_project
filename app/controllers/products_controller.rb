@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
       redirect '/'
     end
     
-    if params[:title] != "" && params[:price] != "" && params[:link] != "" && params[:is_listed?] != ""
+    if params[:title] != "" && params[:price] != "" && params[:link] != "" 
      @product =Product.create(params)
      @product.user_id = current_user.id
      @product.save
