@@ -69,7 +69,15 @@ class ProductsController < ApplicationController
   end
   
   get '/products' do
-    @products =Product.all
+   ## binding.pry
+    if params[:search]
+      # @products =Product.all.select do |product|
+      #   product.title.downcase.include?(params[:search].downcase)
+    #  end
+      @products = Product.where("title LIKE ?", "%#{params[:search]}%")
+    else
+     @products =Product.all
+    end
     erb :'/products/index'
   end
   
