@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
     if !logged_in?
       redirect '/'
     end
-    binding.pry
     if params[:title] != "" && params[:price].to_f !=0 && params[:link] != ""
      @product =Product.create(params)
      @product.user_id = current_user.id
